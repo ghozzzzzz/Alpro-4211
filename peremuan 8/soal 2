@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+void bubble_short(int arr[],int n){
+    for (int i=0;i<n-1;i++){
+        for (int j=0; j<n-i-1;j++){
+            if(arr[j]<arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1]= temp;
+            }
+        }
+    }
+}
+
+void insertion_short(int arr[],int n){
+    for (int i=1;i<n;i++){
+        int key = arr[i];
+        int j = i-1;
+        while (j>=0 && arr[j]<key){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1]=key;
+    }
+}
+
+int main(){
+int arr_bubble[] = {5,3,8,1,6};
+int n = sizeof(arr_bubble)/sizeof(arr_bubble[0]);
+bubble_short(arr_bubble,n);
+cout << "hasil : ";
+for ( int i = 0; i<n;i++){
+    cout << arr_bubble[i]<<" ";
+
+}
+cout << endl;
+
+int arr_insertion[] = {5,3,8,1,6};
+n = sizeof(arr_insertion)/sizeof(arr_insertion[0]);
+insertion_short(arr_insertion,n);
+cout << "hasil : ";
+for ( int i = 0; i<n;i++){
+    cout << arr_insertion[i]<<" ";
+
+}
+cout << endl;
+return 0;
+}
